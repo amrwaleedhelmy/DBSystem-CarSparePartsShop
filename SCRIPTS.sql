@@ -37,13 +37,13 @@ VALUES
 
 INSERT INTO Items (Item_ID, Item_Description, Price)
 VALUES
-(2315-0060, 'Handle', 2),
-(1103-1, '20 in. Tyre', 3),
-(1102-1, '24 in. Tyre', 4),
-(1101-1, '26 in. Tyre', 5),
-(1100-1, '28 in. Tyre', 3),
-(6661-1041, 'Screw Driver', 1),
-(3999-1050, 'Spanner', 1);
+(23150060, 'Handle', 2),
+(11031, '20 in. Tyre', 3),
+(11021, '24 in. Tyre', 4),
+(11011, '26 in. Tyre', 5),
+(11001, '28 in. Tyre', 3),
+(66611041, 'Screw Driver', 1),
+(39991050, 'Spanner', 1);
 
 INSERT INTO Orders (Order_ID, Date, Time, Customer_Code)
 VALUES
@@ -57,19 +57,19 @@ VALUES
 
 INSERT INTO Order_Details (Order_ID, Item_ID, Quantity)
 VALUES
-(110, 2315-0060, 2),
-(110, 1103-1, 5),
-(111, 1102-1, 5),
-(111, 1101-1, 10),
-(112, 1103-1, 5),
-(112, 1101-1, 10),
-(113, 1101-1, 50),
-(114, 1103-1, 25),
-(115, 1103-1, 25),
-(116, 1100-1, 4),
-(116, 1103-1, 5),
-(116, 6661-1041, 5),
-(116, 3999-1050, 50);
+(110, 23150060, 2),
+(110, 11031, 5),
+(111, 11021, 5),
+(111, 11011, 10),
+(112, 11031, 5),
+(112, 11011, 10),
+(113, 11011, 50),
+(114, 11031, 25),
+(115, 11031, 25),
+(116, 11001, 4),
+(116, 11031, 5),
+(116, 66611041, 5),
+(116, 39991050, 50);
 
 -- Trigger that inserts the date and time every time an order is inserted
 CREATE TRIGGER add_timestamp 
