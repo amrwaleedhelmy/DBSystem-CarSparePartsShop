@@ -7,28 +7,26 @@
 <?php
 echo nl2br("Here is the SQL statement output result\n");
 
-   $dbhost = 'localhost:3306';
+   $dbhost = 'localhost';
    $dbuser = 'root';
-   $dbpass = 'root';
+   $dbpass = '';
+   $dbname = 'pro';
    
+   // Create connection using mysqli
+   $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
    
-   
-   error_reporting(E_ALL ^ E_DEPRECATED);
-   $conn = mysql_connect($dbhost, $dbuser, $dbpass);
-   
-   if(! $conn ) {
-      die('Could not connect: ' . mysql_error());
+   if(!$conn) {
+      die('Could not connect: ' . mysqli_connect_error());
    }
    
    $sql = 'SELECT Item_ID, Item_Description, Price FROM Items';
-   mysql_select_db('pro');
-   $retval = mysql_query( $sql, $conn );
+   $retval = mysqli_query($conn, $sql);
    
-   if(! $retval ) {
-      die('Could not get data: ' . mysql_error());
+   if(!$retval) {
+      die('Could not get data: ' . mysqli_error($conn));
    }
    
-   while($row = mysql_fetch_array($retval, MYSQL_ASSOC)) {
+   while($row = mysqli_fetch_assoc($retval)) {
       echo "\r\nITEM ID :{$row['Item_ID']}  <br> ".
          "Item Description : {$row['Item_Description']} <br> ".
          "Price : {$row['Price']} <br> ".
@@ -37,6 +35,7 @@ echo nl2br("Here is the SQL statement output result\n");
    
    echo "Fetched data successfully\n";
    
+   mysqli_close($conn);
    
 ?>
 
